@@ -19783,58 +19783,54 @@ var App = function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: "componentDidMount",
+    key: 'componentDidMount',
     value: function componentDidMount() {
-      _jquery2.default.get("http://localhost:3000/todos", function (response) {
+      _jquery2.default.get('http://localhost:3000/todos', function (response) {
         console.log(response);
       });
     }
   }, {
-    key: "handleToggleCompletion",
+    key: 'handleToggleCompletion',
     value: function handleToggleCompletion(id) {
       _jquery2.default.ajax({
-        method: "POST",
-        url: "/todos/" + id
+        method: 'POST',
+        url: '/todos/' + id
       }).then(function (data) {
-        console.log("TOGGLE:", data);
+        console.log('TOGGLE:', data);
         // Find the item and update its state
         // this.setState({ todos: data })
       });
     }
   }, {
-    key: "handleCreation",
+    key: 'handleCreation',
     value: function handleCreation(item) {}
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       var todos = this.state.todos;
 
 
       return _react2.default.createElement(
-        "div",
+        'div',
         null,
         _react2.default.createElement(
-          "h1",
+          'h1',
           null,
-          "HELLO N!"
+          'RUSTY test'
         ),
         _react2.default.createElement(
-          "div",
+          'div',
           null,
           _react2.default.createElement(
-            "div",
+            'div',
             null,
             _react2.default.createElement(_NewTodo2.default, { handleCreation: this.handleCreation })
           )
         ),
         _react2.default.createElement(
-          "div",
+          'div',
           null,
-          _react2.default.createElement(
-            "div",
-            null,
-            _react2.default.createElement(_TodoList2.default, { todos: todos })
-          )
+          _react2.default.createElement(_TodoList2.default, { todos: todos, handleToggleCompletion: this.handleToggleCompletion })
         )
       );
     }
